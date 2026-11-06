@@ -1,2 +1,29 @@
+# Compiled output
+*.exe
+*.o
+*.obj
+*.out
+*.a
+*.lib
+*.dll
+*.pdb
+*.ilk
+
+# Build folders (if you ever use one)
 build/
+bin/
+obj/
+
+# Arduino build artifacts (for later)
+*.hex
+*.elf
+*.eep
+*.bin
+
+# VS Code
 .vscode/
+
+# OS junk
+Thumbs.db
+Desktop.ini
+.DS_Store
