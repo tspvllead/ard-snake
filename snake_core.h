@@ -5,29 +5,31 @@
 constexpr uint8_t board_size = 8;
 constexpr uint8_t snake_max = 64;
 
-enum class Direction : uint8_t {Up, Left, Down, Right};
+enum class Direction : uint8_t { Up, Left, Down, Right };
 
-enum class Status : uint8_t {Running, Dead, Won};
+enum class Status : uint8_t { Running, Dead, Won };
 
-struct Pos
-{
+struct Pos {
     uint8_t row, col;
 };
 
-class Game
-{
-private:
+class Game {
+  private:
     Pos body[snake_max];
     uint8_t head, count;
     uint8_t bitmap[board_size];
     Pos food;
     Direction current, pending;
-    Status st;
-public:
+    Status snake_state;
+    bool testCell(uint8_t row, uint8_t col) const;
+    void setCell(uint8_t row, uint8_t col);
+    void clearCell(uint8_t row, uint8_t col);
+
+  public:
     void reset(uint8_t num);
     void requestDirection(Direction dir);
     void tick(uint8_t t);
-    void frame(uint8_t grid[8]) const ;
-    Status status() const ;
-    uint8_t length() const ;
-}; 
+    void frame(uint8_t grid[8]) const;
+    Status status() const;
+    uint8_t length() const;
+};
