@@ -24,12 +24,16 @@ class Game {
     bool testCell(uint8_t row, uint8_t col) const;
     void setCell(uint8_t row, uint8_t col);
     void clearCell(uint8_t row, uint8_t col);
+    void addHead(uint8_t row, uint8_t col);
+    void removeTail();
+    void placeFood(uint8_t rn);
 
   public:
     void reset(uint8_t num);
     void requestDirection(Direction dir);
     void tick(uint8_t t);
     void frame(uint8_t grid[8]) const;
+
     Status status() const;
     uint8_t length() const;
 };
